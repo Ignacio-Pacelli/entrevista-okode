@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Now Playing
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let movie of movies" (click)="onSelect($ev, movie.id)" [class.selected]="movie === selectedMovie">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"></ion-img>
+      </ion-thumbnail>
+      {{movie.title}}
+      <div class="item-note" slot="end">
+        <ion-icon name="arrow-dropright-circle"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-list>
+  <!--
+    <div *ngIf="selectedItem" padding>
+      You navigated here from <b>{{selectedItem.title }}</b>
+    </div>
+  -->
+</ion-content>
